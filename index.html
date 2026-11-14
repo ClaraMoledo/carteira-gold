@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Minhas caixinhas</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<div class="row" style="justify-content:flex-end;margin-bottom:.5rem"><button id="theme" type="button" class="small" aria-label="Alternar entre modo claro e escuro">Modo claro</button></div>
+
+<p class="empty" id="loading">Carregando seus dados...</p>
+<section id="auth" class="hide">
+  <form class="panel" id="authForm" autocomplete="on">
+    <h1 id="authTitle">Entrar</h1>
+    <p class="empty">Acesso do superadmin.</p>
+    <label for="u">Usuário</label>
+    <input id="u" name="username" autocomplete="username" required>
+    <label for="p">Senha</label>
+    <input id="p" name="password" type="password" autocomplete="current-password" required>
+    <p class="msg" id="authMsg" role="alert"></p>
+    <button class="main" id="authBtn" type="submit">Entrar</button>
+  </form>
+</section>
+
+<section id="app" class="hide">
+  <div class="top">
+    <h1>Minhas caixinhas</h1>
+    <button id="logout" type="button">Sair</button>
+  </div>
+  <div class="sum">
+    <div><p>Total em todas as caixinhas</p><div class="big" id="total">R$ 0,00</div></div>
+    <div><p>Gasto neste mês</p><div class="big out" id="month">R$ 0,00</div></div>
+  </div>
+
+  <p class="empty" id="sync" role="status"></p>
+  <div class="grid">
+    <div class="stack">
+      <div class="panel">
+        <h2>Caixinhas</h2>
+        <div id="boxes"></div>
+        <form id="boxForm">
+          <label for="bn">Nova caixinha</label>
+          <input id="bn" placeholder="Ex.: Mercado, Lazer, Reserva" required maxlength="30">
+          <label for="bv">Saldo inicial (opcional)</label>
+          <input id="bv" inputmode="decimal" placeholder="0,00">
+          <button class="main" type="submit">Criar caixinha</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="stack">
+      <form class="panel" id="mvForm">
+        <h2>Registrar movimentação</h2>
+        <div class="seg" id="seg">
+          <button type="button" data-t="out" aria-pressed="true">Gastar</button>
+          <button type="button" data-t="in" aria-pressed="false">Depositar</button>
+          <button type="button" data-t="tr" aria-pressed="false">Transferir</button>
+        </div>
+        <label for="mb" id="mbL">Caixinha</label>
+        <select id="mb" required></select>
+        <div id="toWrap" class="hide">
+          <label for="mt">Para a caixinha</label>
+          <select id="mt"></select>
+        </div>
+        <label for="mv">Valor</label>
+        <input id="mv" inputmode="decimal" placeholder="0,00" required>
+        <label for="md">Descrição</label>
+        <input id="md" placeholder="Ex.: Almoço, salário, conta de luz" maxlength="60">
+        <label for="mdt">Data</label>
+        <input id="mdt" type="date" required>
+        <p class="msg" id="mvMsg" role="alert"></p>
+        <button class="main" type="submit">Salvar</button>
+      </form>
+
+      <div class="panel">
+        <div class="row" style="justify-content:space-between">
+          <h2 id="histT" style="margin:0">Histórico</h2>
+          <button class="small hide" id="clearF" type="button">Ver todas</button>
+        </div>
+        <div id="hist"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

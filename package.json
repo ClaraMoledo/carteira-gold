@@ -1,0 +1,10 @@
+{
+  "name": "carteira",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minhas caixinhas - carteira com login de superadmin e banco Postgres (Neon) na Vercel",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  }
+}

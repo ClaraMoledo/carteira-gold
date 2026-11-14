@@ -1,0 +1,23 @@
+# Dependências
+node_modules/
+
+# Segredos e variáveis de ambiente (NUNCA subir)
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Arquivos compactados
+*.zip
